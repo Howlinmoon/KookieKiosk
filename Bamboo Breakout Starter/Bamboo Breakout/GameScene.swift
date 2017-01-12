@@ -64,13 +64,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // implement the category bitmasks
     let paddle = childNode(withName: PaddleCategoryName) as! SKSpriteNode
-    bottom.physicsBody!.categoryBitMask = BottomCategory | BlockCategory
+    bottom.physicsBody!.categoryBitMask = BottomCategory
     ball.physicsBody!.categoryBitMask = BallCategory
     paddle.physicsBody!.categoryBitMask = PaddleCategory
     borderBody.categoryBitMask = BorderCategory
     
     // contact testing
-    ball.physicsBody!.contactTestBitMask = BottomCategory
+    ball.physicsBody!.contactTestBitMask = BottomCategory  | BlockCategory
     
     // Adding the Blocks
     // 1
