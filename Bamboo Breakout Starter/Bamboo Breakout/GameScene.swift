@@ -64,13 +64,36 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // implement the category bitmasks
     let paddle = childNode(withName: PaddleCategoryName) as! SKSpriteNode
-    bottom.physicsBody!.categoryBitMask = BottomCategory
+    bottom.physicsBody!.categoryBitMask = BottomCategory | BlockCategory
     ball.physicsBody!.categoryBitMask = BallCategory
     paddle.physicsBody!.categoryBitMask = PaddleCategory
     borderBody.categoryBitMask = BorderCategory
     
     // contact testing
     ball.physicsBody!.contactTestBitMask = BottomCategory
+    
+    // Adding the Blocks
+    // 1
+    let numberOfBlocks = 8
+    let blockWidth = SKSpriteNode(imageNamed: "block").size.width
+    let totalBlocksWidth = blockWidth * CGFloat(numberOfBlocks)
+    // 2
+    let xOffset = (frame.width - totalBlocksWidth) / 2
+    // 3
+    for i in 0..<numberOfBlocks {
+        let block = SKSpriteNode(imageNamed: "block")
+        block.position = CGPoint(x:xOffset + CGFloat(CGFloat(i) + 0.5) * blockWidth, y: frame.height * 0.8)
+        
+        block.physicsBody = SKPhysicsBody(rectangleOf: block.frame.size)
+        block.physicsBody!.allowsRotation = false
+        block.physicsBody!.friction = 0.0
+        block.physicsBody!.affectedByGravity = false
+        block.physicsBody!.isDynamic = false
+        block.name = BlockCategoryName
+        block.physicsBody!.categoryBitMask = BlockCategory
+        block.zPosition = 2
+        addChild(block)
+    }
     
   }
     
@@ -129,6 +152,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if firstBody.categoryBitMask == BallCategory && secondBody.categoryBitMask == BottomCategory {
             print("Hit Bottom.  Contact has been made")
         }
+        
+        if firstBody.categoryBitMask == BallCategory && secondBody.categoryBitMask == BlockCategory {
+            print("Hit a Block! Boom!")
+            breakBlock(node: secondBody.node!)
+            
+            //TODO: check if the game has been won
+        }
+    }
+    
+    func breakBlock(node: SKNode) {
+        let particles = SKEmitterNode(fileNamed: "BrokenPlatform")!
+        particles.position = node.position
+        particles.zPosition = 3
+        addChild(particles)
+        particles.run(SKAction.sequence([SKAction.wait(forDuration: 1.0), SKAction.removeFromParent()]))
+        node.removeFromParent()
+        
     }
   
   
