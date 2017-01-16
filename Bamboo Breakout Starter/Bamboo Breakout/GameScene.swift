@@ -112,14 +112,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let touch = touches.first
-        let touchLocation = touch!.location(in: self)
-        
-        if let body = physicsWorld.body(at: touchLocation) {
-            if body.node!.name == PaddleCategoryName {
-                print("Began touch on paddle")
-                isFingerOnPaddle = true
+        switch gameState.currentState {
+        case is WaitingForTap:
+            gameState.enter(Playing.self)
+            isFingerOnPaddle = true
+            
+        case is Playing:
+            let touch = touches.first
+            let touchLocation = touch!.location(in: self)
+            
+            if let body = physicsWorld.body(at: touchLocation) {
+                if body.node!.name == PaddleCategoryName {
+                    isFingerOnPaddle = true
+                    print("Something touched the paddle")
+                }
             }
+            
+        default:
+            break
         }
     }
     
@@ -190,5 +200,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         return (rand) * (to - from) + from
     }
   
+    override func update(_ currentTime: TimeInterval) {
+        gameState.update(deltaTime: currentTime)
+    }
   
 }
