@@ -184,6 +184,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         node.removeFromParent()
         
     }
+    
+    func randomFloat(from: CGFloat, to: CGFloat) -> CGFloat {
+        let rand: CGFloat = CGFloat(Float(arc4random()) / 0xFFFFFFFF)
+        return (rand) * (to - from) + from
+    }
   
   
 }
