@@ -24,6 +24,7 @@
  */ 
 
 import SpriteKit
+import GameplayKit
 
 let BallCategoryName = "ball"
 let PaddleCategoryName = "paddle"
@@ -39,6 +40,10 @@ let BorderCategory  : UInt32 = 0x1 << 4
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     var isFingerOnPaddle = false
+    lazy var gameState: GKStateMachine = GKStateMachine(states: [
+        WaitingForTap(scene: self),
+        Playing(scene: self),
+        GameOver(scene:self)])
     
   override func didMove(to view: SKView) {
     super.didMove(to: view)
@@ -54,7 +59,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     physicsWorld.contactDelegate = self
     
     let ball = childNode(withName: BallCategoryName) as! SKSpriteNode
-    ball.physicsBody!.applyImpulse(CGVector(dx:2.0, dy: -2.0))
+    // ball.physicsBody!.applyImpulse(CGVector(dx:2.0, dy: -2.0)) // Moved...
     
     // Bottom physics barrier
     let bottomRect = CGRect(x: frame.origin.x, y: frame.origin.y, width: frame.size.width, height: 1)
@@ -94,6 +99,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         block.zPosition = 2
         addChild(block)
     }
+    
+    let gameMessage = SKSpriteNode(imageNamed: "TapToPlay")
+    gameMessage.name = GameMessageName
+    gameMessage.position = CGPoint(x: frame.midX, y: frame.midY)
+    gameMessage.zPosition = 4
+    gameMessage.setScale(0.0)
+    addChild(gameMessage)
+    
+    gameState.enter(WaitingForTap.self)
     
   }
     
