@@ -45,6 +45,9 @@ class GameScene: SKScene {
     let kInvaderGridSpacing = CGSize(width: 12, height: 12)
     let kInvaderRowCount = 6
     let kInvaderColCount = 6
+    // player ship
+    let kShipSize = CGSize(width: 30, height: 16)
+    let kShipName = "ship"
     
   
   // Object Lifecycle Management
@@ -61,6 +64,7 @@ class GameScene: SKScene {
   func createContent() {
     
     setupInvaders()
+    setupShip()
     
     // black space color
     self.backgroundColor = SKColor.black
@@ -119,6 +123,22 @@ class GameScene: SKScene {
             }
         }
     }
+
+    func makeShip() -> SKNode {
+        let ship = SKSpriteNode(color: SKColor.green, size: kShipSize)
+        ship.name = kShipName
+        return ship
+    }
+
+    func setupShip() {
+        // 1
+        let ship = makeShip()
+        
+        // 2
+        ship.position = CGPoint(x: size.width / 2.0, y: kShipSize.height / 2.0)
+        addChild(ship)
+    }
+    
   
   // Scene Update
   
