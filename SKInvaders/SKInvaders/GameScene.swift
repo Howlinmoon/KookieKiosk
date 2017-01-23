@@ -48,6 +48,8 @@ class GameScene: SKScene {
     // player ship
     let kShipSize = CGSize(width: 30, height: 16)
     let kShipName = "ship"
+    let kScoreHudName = "scoreHud"
+    let kHealthHudName = "healthHud"
     
   
   // Object Lifecycle Management
@@ -65,6 +67,7 @@ class GameScene: SKScene {
     
     setupInvaders()
     setupShip()
+    setupHud()
     
     // black space color
     self.backgroundColor = SKColor.black
@@ -139,6 +142,39 @@ class GameScene: SKScene {
         addChild(ship)
     }
     
+    func setupHud() {
+        // 1
+        let scoreLabel = SKLabelNode(fontNamed: "Courier")
+        scoreLabel.name = kScoreHudName
+        scoreLabel.fontSize = 25
+        
+        // 2
+        scoreLabel.fontColor = SKColor.green
+        scoreLabel.text = String(format: "Score %04u", 0)
+        
+        // 3
+        scoreLabel.position = CGPoint(
+            x: frame.size.width / 2,
+            y: size.height - (40 + scoreLabel.frame.size.height / 2)
+        )
+        addChild(scoreLabel)
+        
+        // 4
+        let healthLabel = SKLabelNode(fontNamed: "Courier")
+        healthLabel.name = kHealthHudName
+        healthLabel.fontSize = 25
+        
+        // 5
+        healthLabel.fontColor = SKColor.red
+        healthLabel.text = String(format: "Health %.1f%%", 100.0)
+        
+        // 6
+        healthLabel.position = CGPoint(
+            x: frame.size.width / 2,
+            y: size.height - (80 + healthLabel.frame.size.height / 2)
+        )
+        addChild(healthLabel)
+    }
   
   // Scene Update
   
