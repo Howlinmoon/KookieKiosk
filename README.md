@@ -2,7 +2,7 @@
 # Bamboo Breakout
 # SKInvaders
 
-Let off at Adding the heads up display
+Left off at: Controlling Ship Movements with Device Motion
 
 
 
