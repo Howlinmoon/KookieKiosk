@@ -67,6 +67,9 @@ class GameScene: SKScene {
     let kScoreHudName = "scoreHud"
     let kHealthHudName = "healthHud"
     
+    // Motion Time!
+    let motionManager = CMMotionManager()
+    
   
   // Object Lifecycle Management
   
@@ -76,6 +79,7 @@ class GameScene: SKScene {
     if (!self.contentCreated) {
       self.createContent()
       self.contentCreated = true
+        motionManager.startAccelerometerUpdates()
     }
   }
   
@@ -218,9 +222,24 @@ class GameScene: SKScene {
     }
   }
     
+    func processUserMotion(forUpdate currentTime: CFTimeInterval) {
+        // 1
+        if let ship = childNode(withName: kShipName) as? SKSpriteNode {
+            // 2
+            if let data = motionManager.accelerometerData {
+                // 3
+                if fabs(data.acceleration.x) > 0.2 {
+                    // 4 How do you move the ship?
+                    print("Acceleration: \(data.acceleration.x)")
+                }
+            }
+        }
+    }
+    
   override func update(_ currentTime: TimeInterval) {
     /* Called before each frame is rendered */
     moveInvaders(forUpdate: currentTime)
+    processUserMotion(forUpdate: currentTime)
   }
   
   // Scene Update Helpers
