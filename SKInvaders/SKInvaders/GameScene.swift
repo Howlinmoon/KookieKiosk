@@ -85,6 +85,7 @@ class GameScene: SKScene {
   
   func createContent() {
     
+    physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
     setupInvaders()
     setupShip()
     setupHud()
@@ -150,6 +151,18 @@ class GameScene: SKScene {
     func makeShip() -> SKNode {
         let ship = SKSpriteNode(color: SKColor.green, size: kShipSize)
         ship.name = kShipName
+        // 1
+        ship.physicsBody = SKPhysicsBody(rectangleOf: ship.frame.size)
+        
+        // 2
+        ship.physicsBody!.isDynamic = true
+        
+        // 3
+        ship.physicsBody!.affectedByGravity = false
+        
+        // 4
+        ship.physicsBody!.mass = 0.02
+        
         return ship
     }
 
@@ -231,6 +244,7 @@ class GameScene: SKScene {
                 if fabs(data.acceleration.x) > 0.2 {
                     // 4 How do you move the ship?
                     print("Acceleration: \(data.acceleration.x)")
+                    ship.physicsBody!.applyForce(CGVector(dx: 40 * CGFloat(data.acceleration.x), dy: 0))
                 }
             }
         }
