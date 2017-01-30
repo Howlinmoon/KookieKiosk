@@ -86,6 +86,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // A Contact queue
     var contactQueue = [SKPhysicsContact]()
     
+    // Department of HUD stuff
+    var score: Int = 0
+    var shipHealth: Float = 1.0
+    
+    
     
     // Preparing for contact detection
     let kInvaderCategory: UInt32 = 0x1 << 0
@@ -123,21 +128,35 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     self.backgroundColor = SKColor.black
   }
     
-    func makeInvader(ofType invaderType: InvaderType) -> SKNode {
-        // 1
-        var invaderColor: SKColor
+    func loadInvaderTextures(ofType invaderType: InvaderType) -> [SKTexture] {
+        
+        var prefix: String
+        
         switch(invaderType) {
+        
         case .a:
-            invaderColor = SKColor.red
+            prefix = "InvaderA"
+        
         case .b:
-            invaderColor = SKColor.green
+            prefix = "InvaderB"
+        
         case .c:
-            invaderColor = SKColor.blue
+            prefix = "InvaderC"
         }
         
-        // 2
-        let invader = SKSpriteNode(color: invaderColor, size: InvaderType.size)
+        return [SKTexture(imageNamed: String(format: "%@_00.png", prefix)),
+                SKTexture(imageNamed: String(format: "%@_01.png", prefix))]
+    }
+    
+    func makeInvader(ofType invaderType: InvaderType) -> SKNode {
+        let invaderTextures = loadInvaderTextures(ofType: invaderType)
+        
+        // load the frames
+        let invader = SKSpriteNode(texture: invaderTextures[0])
         invader.name = InvaderType.name
+        
+        // a little animation between the invader frames
+        invader.run(SKAction.repeatForever(SKAction.animate(with: invaderTextures, timePerFrame: timePerMove)))
         
         invader.physicsBody = SKPhysicsBody(rectangleOf: invader.frame.size)
         invader.physicsBody!.isDynamic = false
@@ -184,7 +203,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
 
     func makeShip() -> SKNode {
-        let ship = SKSpriteNode(color: SKColor.green, size: kShipSize)
+        let ship = SKSpriteNode(imageNamed: "Ship.png")
         ship.name = kShipName
         // 1
         ship.physicsBody = SKPhysicsBody(rectangleOf: ship.frame.size)
@@ -237,7 +256,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // 5
         healthLabel.fontColor = SKColor.red
-        healthLabel.text = String(format: "Health %.1f%%", 100.0)
+        healthLabel.text = String(format: "Health %.1f%%", shipHealth * 100.0)
         
         // 6
         healthLabel.position = CGPoint(
@@ -245,6 +264,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             y: size.height - (80 + healthLabel.frame.size.height / 2)
         )
         addChild(healthLabel)
+    }
+    
+    func adjustScore(by points: Int) {
+        score = score + points
+        
+        if let score = childNode(withName: kScoreHudName) as? SKLabelNode {
+            score.text = String(format: "Score: %04u", self.score)
+        }
+    }
+    
+    func adjustShipHealth(by healthAdjustment: Float) {
+        // 1
+        shipHealth = max(shipHealth + healthAdjustment, 0)
+        if let health = childNode(withName: kHealthHudName) as? SKLabelNode {
+            health.text = String(format: "Health: %.1f%%", self.shipHealth * 100)
+        }
     }
     
     func makeBullet(ofType bulletType: BulletType) -> SKNode {
@@ -488,29 +523,47 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func handle(_ contact: SKPhysicsContact) {
-        // 1
-        // verify this was not already handled
+        // Ensure you haven't already handled this contact and removed its nodes
         if contact.bodyA.node?.parent == nil || contact.bodyB.node?.parent == nil {
             return
         }
         
         let nodeNames = [contact.bodyA.node!.name!, contact.bodyB.node!.name!]
         
-        //2
         if nodeNames.contains(kShipName) && nodeNames.contains(kInvaderFiredBulletName) {
-            // 3 invader bullet hit the ship - boo, hiss
+            // Invader bullet hit a ship
             run(SKAction.playSoundFileNamed("ShipHit.wav", waitForCompletion: false))
-            contact.bodyA.node!.removeFromParent()
-            contact.bodyB.node!.removeFromParent()
-            print("Ya got me!\n")
-
+            
+            // each impact knocks off 1/3 of ship health (3 lives)
+            adjustShipHealth(by: -0.334)
+            
+            if shipHealth <= 0.0 {
+                // ship is dead...
+                contact.bodyA.node!.removeFromParent()
+                contact.bodyB.node!.removeFromParent()
+            } else {
+                // 3
+                if let ship = childNode(withName: kShipName) {
+                    // adjust the alpha of the ship to correlate with its health
+                    ship.alpha = CGFloat(shipHealth)
+                    
+                    if contact.bodyA.node == ship {
+                        contact.bodyB.node!.removeFromParent()
+                        
+                    } else {
+                        contact.bodyA.node!.removeFromParent()
+                    }
+                }
+            }
+            
         } else if nodeNames.contains(InvaderType.name) && nodeNames.contains(kShipFiredBulletName) {
-            // 4 ship bullet hit an invader - Yay!
+            // Ship bullet hit an invader
             run(SKAction.playSoundFileNamed("InvaderHit.wav", waitForCompletion: false))
             contact.bodyA.node!.removeFromParent()
             contact.bodyB.node!.removeFromParent()
-            print("Gotcha!\n")
             
+            // 4
+            adjustScore(by: 100)
         }
     }
   

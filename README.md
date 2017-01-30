@@ -2,7 +2,8 @@
 # Bamboo Breakout
 # SKInvaders
 
-Left off at: Updating Your Heads Up Display (HUD)
+Left off at: Implementing the End Game
+
 
 
 
