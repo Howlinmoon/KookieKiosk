@@ -1,8 +1,9 @@
 # KookieKiosk
 # Bamboo Breakout
 # SKInvaders
+# Cookie Crunch
 
-Left off at: Implementing the End Game
+Left off at: The Cookie Class
 
 
 
