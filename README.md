@@ -3,7 +3,8 @@
 # SKInvaders
 # Cookie Crunch
 
-Left off at: The Cookie Class
+Left off at: Printing Cookies
+
 
 
 
