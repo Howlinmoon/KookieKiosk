@@ -14,6 +14,7 @@
 		96463A251E60A3D6001983B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96463A241E60A3D6001983B4 /* Assets.xcassets */; };
 		96463A281E60A3D6001983B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96463A261E60A3D6001983B4 /* LaunchScreen.storyboard */; };
 		96463A301E60A46E001983B4 /* Sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 96463A2F1E60A46E001983B4 /* Sprites.atlas */; };
+		969518051E688E5600AC06F1 /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969518041E688E5600AC06F1 /* Array2D.swift */; };
 		96AFA9BD1E673EB700E429FD /* Cookie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AFA9BC1E673EB700E429FD /* Cookie.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		96463A271E60A3D6001983B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		96463A291E60A3D6001983B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96463A2F1E60A46E001983B4 /* Sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Sprites.atlas; sourceTree = "<group>"; };
+		969518041E688E5600AC06F1 /* Array2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array2D.swift; sourceTree = "<group>"; };
 		96AFA9BC1E673EB700E429FD /* Cookie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cookie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,6 +65,7 @@
 				96463A171E60A3D6001983B4 /* AppDelegate.swift */,
 				96463A1D1E60A3D6001983B4 /* GameScene.swift */,
 				96AFA9BC1E673EB700E429FD /* Cookie.swift */,
+				969518041E688E5600AC06F1 /* Array2D.swift */,
 				96463A1F1E60A3D6001983B4 /* GameViewController.swift */,
 				96463A211E60A3D6001983B4 /* Main.storyboard */,
 				96463A241E60A3D6001983B4 /* Assets.xcassets */,
@@ -151,6 +154,7 @@
 				96AFA9BD1E673EB700E429FD /* Cookie.swift in Sources */,
 				96463A201E60A3D6001983B4 /* GameViewController.swift in Sources */,
 				96463A181E60A3D6001983B4 /* AppDelegate.swift in Sources */,
+				969518051E688E5600AC06F1 /* Array2D.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
