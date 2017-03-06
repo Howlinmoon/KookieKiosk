@@ -16,6 +16,7 @@
 		96463A301E60A46E001983B4 /* Sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 96463A2F1E60A46E001983B4 /* Sprites.atlas */; };
 		969518051E688E5600AC06F1 /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969518041E688E5600AC06F1 /* Array2D.swift */; };
 		96AFA9BD1E673EB700E429FD /* Cookie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AFA9BC1E673EB700E429FD /* Cookie.swift */; };
+		96BB47761E6DD6BA00BE2A8D /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BB47751E6DD6BA00BE2A8D /* Level.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		96463A2F1E60A46E001983B4 /* Sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Sprites.atlas; sourceTree = "<group>"; };
 		969518041E688E5600AC06F1 /* Array2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array2D.swift; sourceTree = "<group>"; };
 		96AFA9BC1E673EB700E429FD /* Cookie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cookie.swift; sourceTree = "<group>"; };
+		96BB47751E6DD6BA00BE2A8D /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				96463A171E60A3D6001983B4 /* AppDelegate.swift */,
 				96463A1D1E60A3D6001983B4 /* GameScene.swift */,
 				96AFA9BC1E673EB700E429FD /* Cookie.swift */,
+				96BB47751E6DD6BA00BE2A8D /* Level.swift */,
 				969518041E688E5600AC06F1 /* Array2D.swift */,
 				96463A1F1E60A3D6001983B4 /* GameViewController.swift */,
 				96463A211E60A3D6001983B4 /* Main.storyboard */,
@@ -150,6 +153,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96BB47761E6DD6BA00BE2A8D /* Level.swift in Sources */,
 				96463A1E1E60A3D6001983B4 /* GameScene.swift in Sources */,
 				96AFA9BD1E673EB700E429FD /* Cookie.swift in Sources */,
 				96463A201E60A3D6001983B4 /* GameViewController.swift in Sources */,

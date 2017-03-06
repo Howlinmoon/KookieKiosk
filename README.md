@@ -3,7 +3,8 @@
 # SKInvaders
 # Cookie Crunch
 
-Left off at: The Level Class
+Left off at: The Scene and the View Controller
+
 
 
 
