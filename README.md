@@ -3,7 +3,8 @@
 # SKInvaders
 # Cookie Crunch
 
-Left off at: The Scene and the View Controller
+Left off at: Hop over to GameViewController.swift and add a new property to the class:
+
 
 
 
