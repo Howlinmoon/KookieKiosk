@@ -17,6 +17,13 @@
 		969518051E688E5600AC06F1 /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969518041E688E5600AC06F1 /* Array2D.swift */; };
 		96AFA9BD1E673EB700E429FD /* Cookie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AFA9BC1E673EB700E429FD /* Cookie.swift */; };
 		96BB47761E6DD6BA00BE2A8D /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BB47751E6DD6BA00BE2A8D /* Level.swift */; };
+		96E5F9151E731CA600B92C3F /* Level_0.json in Resources */ = {isa = PBXBuildFile; fileRef = 96E5F9101E731CA600B92C3F /* Level_0.json */; };
+		96E5F9161E731CA600B92C3F /* Level_1.json in Resources */ = {isa = PBXBuildFile; fileRef = 96E5F9111E731CA600B92C3F /* Level_1.json */; };
+		96E5F9171E731CA600B92C3F /* Level_2.json in Resources */ = {isa = PBXBuildFile; fileRef = 96E5F9121E731CA600B92C3F /* Level_2.json */; };
+		96E5F9181E731CA600B92C3F /* Level_3.json in Resources */ = {isa = PBXBuildFile; fileRef = 96E5F9131E731CA600B92C3F /* Level_3.json */; };
+		96E5F9191E731CA600B92C3F /* Level_4.json in Resources */ = {isa = PBXBuildFile; fileRef = 96E5F9141E731CA600B92C3F /* Level_4.json */; };
+		96E5F91B1E731DE500B92C3F /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E5F91A1E731DE500B92C3F /* Tile.swift */; };
+		96E5F91D1E731F6700B92C3F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E5F91C1E731F6700B92C3F /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,11 +34,18 @@
 		96463A221E60A3D6001983B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		96463A241E60A3D6001983B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		96463A271E60A3D6001983B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		96463A291E60A3D6001983B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96463A291E60A3D6001983B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = CookieCrunch/Info.plist; sourceTree = "<group>"; };
 		96463A2F1E60A46E001983B4 /* Sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Sprites.atlas; sourceTree = "<group>"; };
 		969518041E688E5600AC06F1 /* Array2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array2D.swift; sourceTree = "<group>"; };
 		96AFA9BC1E673EB700E429FD /* Cookie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cookie.swift; sourceTree = "<group>"; };
 		96BB47751E6DD6BA00BE2A8D /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		96E5F9101E731CA600B92C3F /* Level_0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_0.json; sourceTree = "<group>"; };
+		96E5F9111E731CA600B92C3F /* Level_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_1.json; sourceTree = "<group>"; };
+		96E5F9121E731CA600B92C3F /* Level_2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_2.json; sourceTree = "<group>"; };
+		96E5F9131E731CA600B92C3F /* Level_3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_3.json; sourceTree = "<group>"; };
+		96E5F9141E731CA600B92C3F /* Level_4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_4.json; sourceTree = "<group>"; };
+		96E5F91A1E731DE500B92C3F /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
+		96E5F91C1E731F6700B92C3F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				96463A161E60A3D6001983B4 /* CookieCrunch */,
+				96463A291E60A3D6001983B4 /* Info.plist */,
 				96463A151E60A3D6001983B4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -66,7 +81,9 @@
 			children = (
 				96463A171E60A3D6001983B4 /* AppDelegate.swift */,
 				96463A1D1E60A3D6001983B4 /* GameScene.swift */,
+				96E5F91C1E731F6700B92C3F /* Extensions.swift */,
 				96AFA9BC1E673EB700E429FD /* Cookie.swift */,
+				96E5F91A1E731DE500B92C3F /* Tile.swift */,
 				96BB47751E6DD6BA00BE2A8D /* Level.swift */,
 				969518041E688E5600AC06F1 /* Array2D.swift */,
 				96463A1F1E60A3D6001983B4 /* GameViewController.swift */,
@@ -74,9 +91,21 @@
 				96463A241E60A3D6001983B4 /* Assets.xcassets */,
 				96463A261E60A3D6001983B4 /* LaunchScreen.storyboard */,
 				96463A2F1E60A46E001983B4 /* Sprites.atlas */,
-				96463A291E60A3D6001983B4 /* Info.plist */,
+				96E5F90F1E731CA600B92C3F /* Levels */,
 			);
 			path = CookieCrunch;
+			sourceTree = "<group>";
+		};
+		96E5F90F1E731CA600B92C3F /* Levels */ = {
+			isa = PBXGroup;
+			children = (
+				96E5F9101E731CA600B92C3F /* Level_0.json */,
+				96E5F9111E731CA600B92C3F /* Level_1.json */,
+				96E5F9121E731CA600B92C3F /* Level_2.json */,
+				96E5F9131E731CA600B92C3F /* Level_3.json */,
+				96E5F9141E731CA600B92C3F /* Level_4.json */,
+			);
+			path = Levels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,8 +169,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				96463A301E60A46E001983B4 /* Sprites.atlas in Resources */,
+				96E5F9191E731CA600B92C3F /* Level_4.json in Resources */,
+				96E5F9171E731CA600B92C3F /* Level_2.json in Resources */,
+				96E5F9151E731CA600B92C3F /* Level_0.json in Resources */,
 				96463A231E60A3D6001983B4 /* Main.storyboard in Resources */,
 				96463A251E60A3D6001983B4 /* Assets.xcassets in Resources */,
+				96E5F9161E731CA600B92C3F /* Level_1.json in Resources */,
+				96E5F9181E731CA600B92C3F /* Level_3.json in Resources */,
 				96463A281E60A3D6001983B4 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -156,6 +190,8 @@
 				96BB47761E6DD6BA00BE2A8D /* Level.swift in Sources */,
 				96463A1E1E60A3D6001983B4 /* GameScene.swift in Sources */,
 				96AFA9BD1E673EB700E429FD /* Cookie.swift in Sources */,
+				96E5F91D1E731F6700B92C3F /* Extensions.swift in Sources */,
+				96E5F91B1E731DE500B92C3F /* Tile.swift in Sources */,
 				96463A201E60A3D6001983B4 /* GameViewController.swift in Sources */,
 				96463A181E60A3D6001983B4 /* AppDelegate.swift in Sources */,
 				969518051E688E5600AC06F1 /* Array2D.swift in Sources */,

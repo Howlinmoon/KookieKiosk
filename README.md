@@ -3,7 +3,8 @@
 # SKInvaders
 # Cookie Crunch
 
-Left off at: Hop over to GameViewController.swift and add a new property to the class:
+Left off at: Next, add the new init(filename:) initializer to Level.swift:
+
 
 
 
