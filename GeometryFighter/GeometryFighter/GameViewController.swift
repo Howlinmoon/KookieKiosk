@@ -80,6 +80,15 @@ class GameViewController: UIViewController {
         // 4
         let geometryNode = SCNNode(geometry: geometry)
         geometryNode.physicsBody = SCNPhysicsBody(type: .dynamic, shape: nil)
+        // A
+        let randomX = Float.random(min: -2, max: 2)
+        let randomY = Float.random(min: 10, max: 18)
+        // B
+        let force = SCNVector3(x: randomX, y: randomY, z:0)
+        // C
+        let position = SCNVector3(x:0.05, y: 0.05, z: 0.05)
+        // Apply the pieces
+        geometryNode.physicsBody?.applyForce(force, at: position, asImpulse: true)
         // 5
         scnScene.rootNode.addChildNode(geometryNode)
     }
