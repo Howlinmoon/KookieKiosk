@@ -36,6 +36,7 @@ class GameViewController: UIViewController {
         scnView.showsStatistics = true
         scnView.allowsCameraControl = true
         scnView.autoenablesDefaultLighting = true
+        scnView.delegate = self
     }
     
     func setupScene() {
@@ -93,5 +94,16 @@ class GameViewController: UIViewController {
         geometryNode.physicsBody?.applyForce(force, at: position, asImpulse: true)
         // 5
         scnScene.rootNode.addChildNode(geometryNode)
+    }
+    
+}
+
+
+// 1
+extension GameViewController: SCNSceneRendererDelegate {
+    // 2
+    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        // 3
+        spawnShape()
     }
 }
