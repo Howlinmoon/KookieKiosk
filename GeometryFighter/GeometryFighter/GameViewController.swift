@@ -15,6 +15,7 @@ class GameViewController: UIViewController {
     var cameraNode: SCNNode!
     var spawnTime: TimeInterval = 0
     var game = GameHelper.sharedInstance
+    var misses = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -144,6 +145,7 @@ class GameViewController: UIViewController {
         } else {
             game.lives -= 1
         }
+        createExplosion(geometry: node.geometry!, position: node.presentation.position, rotation: node.presentation.rotation)
         node.removeFromParentNode()
     }
     
@@ -158,7 +160,24 @@ class GameViewController: UIViewController {
         if let result = hitResults.first {
             // 5
             handleTouchFor(node: result.node)
+        } else {
+            misses = misses + 1
+            print("You missed \(misses) times so far")
         }
+    }
+    
+    func createExplosion(geometry: SCNGeometry, position: SCNVector3, rotation: SCNVector4) {
+        // 2
+        let explosion = SCNParticleSystem(named: "Explode.scnp", inDirectory: nil)!
+        explosion.emitterShape = geometry
+        explosion.birthLocation = .surface
+        // 3
+        let rotationMatrix = SCNMatrix4MakeRotation(rotation.w, rotation.x, rotation.y, rotation.z)
+        let translationMatrix = SCNMatrix4MakeTranslation(position.x, position.y, position.z)
+        let transformMatrix = SCNMatrix4Mult(rotationMatrix, translationMatrix)
+        // 4
+        scnScene.addParticleSystem(explosion, transform: transformMatrix)
+        
     }
     
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		963DA5B31EC4CB1200611F43 /* GeometryFighter.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 963DA5B21EC4CB1200611F43 /* GeometryFighter.scnassets */; };
+		9688623D1F0563370029E84C /* Explode.scnp in Resources */ = {isa = PBXBuildFile; fileRef = 9688623C1F0563370029E84C /* Explode.scnp */; };
 		96A0795E1ECA11880066BC4C /* ShapeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A0795D1ECA11880066BC4C /* ShapeType.swift */; };
 		96B8B60E1EF9871800BFB2C5 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B8B6071EF9871800BFB2C5 /* Double+Extensions.swift */; };
 		96B8B60F1EF9871800BFB2C5 /* Float+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B8B6081EF9871800BFB2C5 /* Float+Extensions.swift */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		963DA5B21EC4CB1200611F43 /* GeometryFighter.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = GeometryFighter.scnassets; sourceTree = "<group>"; };
+		9688623C1F0563370029E84C /* Explode.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = Explode.scnp; sourceTree = "<group>"; };
 		96A0795D1ECA11880066BC4C /* ShapeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShapeType.swift; sourceTree = "<group>"; };
 		96B8B6071EF9871800BFB2C5 /* Double+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		96B8B6081EF9871800BFB2C5 /* Float+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Float+Extensions.swift"; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				96CCA2061F0173E30018E6C6 /* Trail.scnp */,
+				9688623C1F0563370029E84C /* Explode.scnp */,
 				96CCA2071F0173E30018E6C6 /* spark.png */,
 			);
 			name = Particles;
@@ -178,6 +181,7 @@
 				96F11A4D1EBCE1E5008028CD /* LaunchScreen.storyboard in Resources */,
 				96F11A4A1EBCE1E5008028CD /* Assets.xcassets in Resources */,
 				96F11A481EBCE1E5008028CD /* Main.storyboard in Resources */,
+				9688623D1F0563370029E84C /* Explode.scnp in Resources */,
 				963DA5B31EC4CB1200611F43 /* GeometryFighter.scnassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
